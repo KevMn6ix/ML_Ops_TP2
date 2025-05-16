@@ -27,8 +27,8 @@ jobs:
       - name: Analyze with SonarCloud
         run: |
           mvn -B verify sonar:sonar \
-            -Dsonar.projectKey=KevMn6ix_ML_Ops_TP2 \
-            -Dsonar.organization=kevinm \
+            -Dsonar.projectKey=ML_Ops_TP2 \
+            -Dsonar.organization=KevinM \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
             --file ./simple-api/pom.xml
