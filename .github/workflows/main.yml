@@ -28,11 +28,12 @@ jobs:
         working-directory: simple-api
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify sonar:sonar \
-          -Dsonar.projectKey=KevMn6ix_ML_Ops_TP2 \
-          -Dsonar.organization=kevinm \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=$SONAR_TOKEN
+        run: |
+          mvn -B verify sonar:sonar \
+            -Dsonar.projectKey=KevMn6ix_ML_Ops_TP2 \
+            -Dsonar.organization=kevinm \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=$SONAR_TOKEN
       
 
   build-and-push-docker-image:
