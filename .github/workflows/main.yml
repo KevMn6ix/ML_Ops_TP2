@@ -47,8 +47,8 @@ jobs:
       - name: Extract version from pom.xml
         id: extract_version
         run: |
-          VERSION=$(xmllint --xpath "string(//project/version)" simple-api/pom.xml)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          VERSION=$(grep -oPm1 "(?<=<version>)[^<]+" simple-api/pom.xml | head -1)
+            echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Build image and push backend
         uses: docker/build-push-action@v6
